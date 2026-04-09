@@ -1,0 +1,85 @@
+/* animations.css - Aesthetic Motion for EDULIF */
+
+/* Hidden state for intersection observer */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), 
+              transform 0.8s cubic-bezier(0.5, 0, 0, 1),
+              visibility 0.8s;
+  will-change: opacity, transform, visibility;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Delay modifiers for sequential animations */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Subtle floating animation for images */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Background gradient shift for buttons */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-primary {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Pulse animation for important UI elements */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(250, 204, 21, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(250, 204, 21, 0);
+  }
+}
+
+.pulse {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Arrow hover animation */
+.btn-arrow i {
+  transition: transform 0.3s ease;
+}
+
+.btn-arrow:hover i {
+  transform: translateX(5px);
+}

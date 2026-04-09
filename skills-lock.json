@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "education-program": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "computedHash": "8ad3c7a8b1870ddcf990c314f867e760726cb47cefb2523df960d8dbee4695f2"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "516bd2154eb843a8240e43d5b285229129853114ad7075a5e141e1c08e408c84"
+    }
+  }
+}
