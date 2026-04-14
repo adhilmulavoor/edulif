@@ -1,0 +1,21 @@
+name: Supabase Keep Alive
+
+on:
+  schedule:
+    # Runs at 12:00 AM, every 3 days to keep the Supabase free tier project from pausing
+    - cron: '0 0 */3 * *'
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  ping_supabase:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          echo "Pinging Supabase to prevent pausing..."
+          curl -f -s -X GET 'https://${{ secrets.SUPABASE_PROJECT_REF }}.supabase.co/rest/v1/?limit=1' \
+          -H 'apikey: ${{ secrets.SUPABASE_ANON_KEY }}' \
+          -H 'Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}'
+          echo "Ping successful!"
